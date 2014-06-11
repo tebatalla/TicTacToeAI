@@ -1,5 +1,4 @@
 require 'rspec'
-require 'spec_helper'
 require '06_tic_tac_toe.rb'
 require '02_ttt_ai.rb'
 

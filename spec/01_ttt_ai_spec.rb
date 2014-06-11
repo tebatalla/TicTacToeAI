@@ -1,14 +1,12 @@
 require 'rspec'
-require 'spec_helper'
-require '06_tic_tac_toe.rb'
-require '02_ttt_ai.rb'
-#your file ^^^^^^^^^^ goes here
-
+require 'tic_tac_toe'
+require 'tic_tac_toe_node'
 
 describe TicTacToeNode do
   let(:empty_board_node) do
     TicTacToeNode.new(Board.new, :x)
   end
+
   describe '#initialize' do
     it "sets up the instance variables" do
       board = Board.new
@@ -92,6 +90,7 @@ describe TicTacToeNode do
       node.board[[0,2]] = :x
       node
     end
+
     let(:won_node) do
       node = TicTacToeNode.new(Board.new, :x)
       node.board[[0,0]] = :x
@@ -99,20 +98,22 @@ describe TicTacToeNode do
       node.board[[0,2]] = :x
       node
     end
+
     it "detects when the game is already won" do
       expect(won_node.winning_node?(:o)).to be_false
       expect(won_node.winning_node?(:x)).to be_true
     end
+
     context "when it's the player's turn" do
       it "detects when any child is a winner" do
         expect(winner.winning_node?(:x)).to be_true
       end
     end
+
     context "when it's the opponent's turn" do
       it "detects when every child is a winner" do
         expect(winner.winning_node?(:o)).to be_false
       end
     end
   end
-
 end
