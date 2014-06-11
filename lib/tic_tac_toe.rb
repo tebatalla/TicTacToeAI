@@ -1,3 +1,5 @@
+# DON'T EDIT ME!
+
 class Board
   attr_reader :rows
 
