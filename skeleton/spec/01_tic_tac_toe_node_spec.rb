@@ -68,6 +68,16 @@ describe TicTacToeNode do
       node.board[[0,2]] = :o
       node
     end
+    
+		let(:opponent_winner) do
+		  node = TicTacToeNode.new(Board.new, :o)
+			node.board[[0, 0]] = :x
+			node.board[[0, 1]] = :x
+			node.board[[0, 2]] = :o
+			node.board[[1, 1]] = :o
+		  node.board[[1, 0]] = :x	
+			node
+		end
 
     context "when it's the player's turn" do
       it "detects when every child is a loser" do
@@ -78,6 +88,7 @@ describe TicTacToeNode do
     context "when it's the opponent's turn" do
       it "detects when any child is a loser" do
         expect(loser.losing_node?(:o)).to be_false
+			  expect(opponent_winner.losing_node?(:x)).to be_true
       end
     end
   end
