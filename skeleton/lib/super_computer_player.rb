@@ -6,6 +6,7 @@ class SuperComputerPlayer < ComputerPlayer
 end
 
 if __FILE__ == $PROGRAM_NAME
+  puts "Play the brilliant computer!"
   hp = HumanPlayer.new("Jeff")
   cp = SuperComputerPlayer.new
 

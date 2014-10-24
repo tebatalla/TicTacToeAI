@@ -208,6 +208,7 @@ class ComputerPlayer
 end
 
 if __FILE__ == $PROGRAM_NAME
+  puts "Play the dumb computer!"
   hp = HumanPlayer.new("Ned")
   cp = ComputerPlayer.new
 
