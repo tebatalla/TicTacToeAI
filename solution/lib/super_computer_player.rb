@@ -37,5 +37,5 @@ if __FILE__ == $PROGRAM_NAME
   hp = HumanPlayer.new("Jeff")
   cp = SuperComputerPlayer.new
 
-  TicTacToe.new(cp, hp).run
+  TicTacToe.new(hp, cp).run
 end
