@@ -10,3 +10,6 @@ to fill out. Check that you can run the specs:
 
 Of course, they should be failing right now. Call your TA over if you
 have problems.
+
+**To play, run `ruby lib/super_computer_player.rb`**. Running the old
+`tic_tac_toe.rb` solution will continue to yield a stupid computer :-)
