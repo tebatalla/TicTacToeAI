@@ -29,16 +29,16 @@ describe TicTacToeNode do
     end
 
     it "all their #prev_mov_pos values are their parent's" do
-      kids = empty_board_node.children.map{ |kid| kid.prev_move_pos }
+      child_prev_moves = empty_board_node.children.map{ |kid| kid.prev_move_pos }
       positions = [0,1,2].product([0,1,2])
-      expect(kids - positions).to be_empty
+      expect(child_prev_moves).to match_array(positions)
     end
 
     it "the children's boards are dups of the parent's" do
       kid_boards = empty_board_node.children.map{ |kid| kid.board }
       expect(
         kid_boards.none? do |kid_board|
-        kid_board.object_id == empty_board_node.object_id
+          kid_board.object_id == empty_board_node.object_id
         end
       ).to eq(true)
     end
