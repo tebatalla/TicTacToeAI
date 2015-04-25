@@ -1,5 +1,3 @@
-# DON'T EDIT ME!
-
 class Board
   attr_reader :rows
 
@@ -39,9 +37,6 @@ class Board
     up_diag = [[0, 2], [1, 1], [2, 0]]
 
     [down_diag, up_diag].map do |diag|
-      # Note the `x, y` inside the block; this unpacks, or
-      # "destructures" the argument. Read more here:
-      # http://tony.pitluga.com/2011/08/08/destructuring-with-ruby.html
       diag.map { |x, y| @rows[x][y] }
     end
   end
@@ -58,14 +53,10 @@ class Board
   def tied?
     return false if won?
 
-    # no empty space?
     @rows.all? { |row| row.none? { |el| el.nil? }}
   end
 
   def over?
-    # style guide says to use `or`, but I (and most others) prefer to
-    # use `||` all the time. We don't like two ways to do something
-    # this simple.
     won? || tied?
   end
 
@@ -83,10 +74,6 @@ class Board
   end
 end
 
-# Notice how the Board has the basic rules of the game, but no logic
-# for actually prompting the user for moves. This is a rigorous
-# decomposition of the "game state" into its own pure object
-# unconcerned with how moves are processed.
 
 class TicTacToe
   class IllegalMoveError < RuntimeError
@@ -114,7 +101,6 @@ class TicTacToe
   end
 
   def show
-    # not very pretty printing!
     self.board.rows.each { |row| p row }
   end
 
@@ -136,7 +122,6 @@ class TicTacToe
       break if place_mark(pos, self.turn)
     end
 
-    # swap next whose turn it will be next
     @turn = ((self.turn == :x) ? :o : :x)
   end
 end
@@ -192,7 +177,6 @@ class ComputerPlayer
       end
     end
 
-    # no winning move
     nil
   end
 

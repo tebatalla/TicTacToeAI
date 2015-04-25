@@ -1,15 +1,18 @@
 # Tic-tac-toe AI
 
-We're going to write a computer AI that can't be beaten at
-TicTacToe. Go to the [TicTacToeAI Repo][ttt-repo] and **download the
-ZIP**. This has our TTT solution code, plus some stub classes for you
-to fill out. Check that you can run the specs:
+Tic-tac-toe super computer that uses binary trees and Depth First Search (DFS)
+to evaluate outcomes in order to never lose :).
 
-    bundle exec rspec spec/01_tic_tac_toe_node_spec.rb
-    bundle exec rspec spec/02_super_computer_player_spec.rb
+## Play the super computer
 
-Of course, they should be failing right now. Call your TA over if you
-have problems.
+To play, run
+```
+$ ruby lib/super_computer_player.rb
+```
 
-**To play, run `ruby lib/super_computer_player.rb`**. Running the old
-`tic_tac_toe.rb` solution will continue to yield a stupid computer :-)
+## How does it work?
+Before it makes a move, the super computer builds [child boards](./lib/tic_tac_toe_node.rb:24) that are simply all the moves the computer can make 
+for that turn. The computer recursively builds further child boards of these 
+boards in evaluating whether or not the end outcome of a particular child node 
+could ever lead to [victory](./lib/tic_tac_toe_node.rb:11) or a 
+[draw](./lib/super_computer_player.rb:1@) if there are no more winning nodes. 

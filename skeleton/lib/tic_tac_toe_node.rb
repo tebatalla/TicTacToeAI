@@ -1,5 +1,3 @@
-require 'byebug'
-
 require_relative 'tic_tac_toe'
 
 class TicTacToeNode
@@ -23,8 +21,6 @@ class TicTacToeNode
     end
   end
 
-  # This method generates an array of all moves that can be made after
-  # the current move.
   def children
     child_boards = []
     (0...@board.rows.length).each do |x|
@@ -35,7 +31,6 @@ class TicTacToeNode
           next_board_mover_mark = ((@next_mover_mark == :x) ? :o : :x)
           next_board_node = TicTacToeNode.new(next_board, next_board_mover_mark, [x, y])
           child_boards << next_board_node
-          # @prev_move_pos = [x, y]
         end
       end
     end
@@ -47,7 +42,7 @@ class TicTacToeNode
     if @board.over?
       if @board.winner.nil?
         return false
-      elsif @board.winner != evaluator #= ((evaluator == :x) ? :o : :x)
+      elsif @board.winner != evaluator 
         return true
       else
         return false
